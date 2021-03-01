@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react'
 import Heading from './components/Heading'
-import validateUrl from './validate'
+import {fullRegex,validate} from './utils'
 import './App.css'
 
 import {
@@ -12,20 +12,25 @@ import { faCheck, faExclamationTriangle, faHourglassHalf } from '@fortawesome/fr
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
-  const [returnVal, setReturnVal] = useState(null)
-  const [returnErrs, setReturnErrs] = useState([])
+  const [status,setStatus] = useState(null)
+  const [urlObj, setUrlObj] = useState({})
+  const [errs, setErrs] = useState([])
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const inputRef = useRef(null)
 
   const toggle = () => setDropdownOpen(!dropdownOpen)
   const updateCycle = () => {
     let input = inputRef.current.value || null
-    if (input !== null && input !== returnVal) {
-      let urlResponse = validateUrl(input)
-      setReturnVal(urlResponse.response)
-      setReturnErrs(urlResponse.errors)
-    }
+    let fullRegexRes = fullRegex(input)
+    setStatus(fullRegex(fullRegexRes))
+    let validationObj = validate(input)
+    let setMe = {}
+    Object.keys(validationObj[0]).forEach(key => setMe[key] = validationObj[0][key])
+    setUrlObj(setMe)
+    setErrs(validationObj[1])
   }
+
+  console.log(urlObj)
 
   return (
     <div className="App">
@@ -49,8 +54,8 @@ const App = () => {
             <Row>
               <Heading title="Pass:" tag="h2" />
               {
-                returnVal === null ? (<FontAwesomeIcon size="2x" icon={faHourglassHalf} />) : (
-                  returnErrs && returnErrs.length === 0 ? (<FontAwesomeIcon style={{color:'green'}} size="2x" icon={faCheck} />) : (<FontAwesomeIcon style={{color:'orange'}} size='2x' icon={faExclamationTriangle} />)
+                status === null ? (<FontAwesomeIcon size="2x" icon={faHourglassHalf} />) : (
+                  status === true ? (<FontAwesomeIcon style={{color:'green'}} size="2x" icon={faCheck} />) : (<FontAwesomeIcon style={{color:'orange'}} size='2x' icon={faExclamationTriangle} />)
                 )
               }
             </Row>
@@ -59,8 +64,8 @@ const App = () => {
             <Card className="Card" body>
               <CardTitle tag="h3">Issues found:</CardTitle>
               {
-                returnErrs && returnErrs.length === 0 ? (<CardText>Any errors will appear here!</CardText>) : (
-                  returnErrs.map((err) => {
+                errs && errs.length <= 0 ? (<CardText>Any errors will appear here!</CardText>) : (
+                  errs.map((err) => {
                     return <CardText>{err}</CardText>
                   })
                 )
@@ -73,7 +78,7 @@ const App = () => {
           <Heading 
             title="Formatted URL:" 
             tag="h2" 
-            subtitle={returnVal !== null ? returnVal : "Validate a URL with the input above and it will appear here!"}
+            subtitle={status !== null ? status : "Validate a URL with the input above and it will appear here!"}
           />
           </Row>
           <div>
