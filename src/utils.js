@@ -21,10 +21,10 @@ const data = {
     example: "/folder/file",
     patchable: true,
     default: "/",
-    regex: /((:\d+)?(\/[\/a-z\d-%_.~+]*))/
+    regex: /((:\d+)?(\/[/a-z\d-%_.~+]*))/
   },
   query: {
-    name: "query",
+    name: "query string",
     req: false,
     example: "?this=that",
     patchable: false,
@@ -34,10 +34,10 @@ const data = {
   fragment: {
     name: "fragment",
     req: false,
-    example: "?this=that",
+    example: "#id",
     patchable: false,
     default: null,
-    regex: /(\#[-a-z\d_]*)?$/
+    regex: /(#[-a-z\d_]*)?$/
   },
 }
 
@@ -62,7 +62,8 @@ const decode = (str) => {
     ['plus','+'],
     ['equals','='],
     ['semi',';'],
-    ['num','#']
+    ['num','#'],
+    ['nbsp','']
   ]
   for (var i=0; i < entities.length;i++) {
     str = str.replace(new RegExp('&'+entities[i][0]+';','g'), entities[i][1])
@@ -74,7 +75,9 @@ const decode = (str) => {
 export const validate = (url) => {
   let errs = []
   let res = {}
-  url = decode(url)
+  const decoded = decode(url)
+  if (decoded !== url) {errs.push("HTML Entities were removed from URL")}
+
   // Loop through data object
   Object.keys(data).forEach(key => {
     // Declare nested object and create global RegEx 
@@ -84,7 +87,7 @@ export const validate = (url) => {
         - checks if protocol has been found, if so it removes it from string thats being executed
         - otherwise the path RegEx will match on /www.domain.com as it would be a valid url path as well
     */
-    const executable = (res.protocol && res.protocol !== null) ? url.replace(data.protocol.regex, "") : url
+    const executable = (res.protocol && res.protocol !== null) ? decoded.replace(data.protocol.regex, "") : decoded
     const exec = rgx.exec(executable)
     const val = (exec !== null && exec[0].length > 0) ? exec[0] : null
     // Check if RegEx returned match
