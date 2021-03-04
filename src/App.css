@@ -1,22 +1,28 @@
-.App {
-  text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  color: white;
-}
-
-.transition {
+* {
+  box-sizing: border-box;
   transition: .2s ease-in-out;
 }
 
-.Card {
-  color: #282c34;
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: #f8f9fa;
 }
 
-.Title {
-  font-size: calc(10px + 2vmin);
+.light {
+  color: #f8f9fa;
 }
 
-.Para {
-  font-size: calc(10px + 1vmin);
+.padding {
+  padding: 8px;
+}
+
+.link {
+  color: unset;
+  text-decoration: underline;
+}
+
+.link:hover {
+  transform: scale(1.05);
 }
