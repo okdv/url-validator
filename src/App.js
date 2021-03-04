@@ -123,6 +123,7 @@ const App = () => {
                   The function breaks apart, and validates a URL using Regular Expressions and the&nbsp;
                   <a href="https://www.w3.org/Addressing/URL/url-spec.txt">URL Syntax Specifications</a>.
                 </p>
+                <p>This was built with the intention of being added into a larger JavaScript toolkit package.</p>
                 <h4>Parts of URL Validation</h4>
                 <p>This will breakdown the parts of a URL, and what is used to validate. This can be helpful documentation for understanding warnings 
                   and/or errors above.
