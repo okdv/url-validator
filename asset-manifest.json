@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/url-validator/static/css/main.6d867346.chunk.css",
+    "main.js": "/url-validator/static/js/main.c85f6429.chunk.js",
+    "main.js.map": "/url-validator/static/js/main.c85f6429.chunk.js.map",
+    "runtime-main.js": "/url-validator/static/js/runtime-main.74c5f1cb.js",
+    "runtime-main.js.map": "/url-validator/static/js/runtime-main.74c5f1cb.js.map",
+    "static/css/2.150d169a.chunk.css": "/url-validator/static/css/2.150d169a.chunk.css",
+    "static/js/2.b051ea76.chunk.js": "/url-validator/static/js/2.b051ea76.chunk.js",
+    "static/js/2.b051ea76.chunk.js.map": "/url-validator/static/js/2.b051ea76.chunk.js.map",
+    "static/js/3.81d6ffcd.chunk.js": "/url-validator/static/js/3.81d6ffcd.chunk.js",
+    "static/js/3.81d6ffcd.chunk.js.map": "/url-validator/static/js/3.81d6ffcd.chunk.js.map",
+    "index.html": "/url-validator/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/url-validator/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.6d867346.chunk.css.map": "/url-validator/static/css/main.6d867346.chunk.css.map",
+    "static/js/2.b051ea76.chunk.js.LICENSE.txt": "/url-validator/static/js/2.b051ea76.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74c5f1cb.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.b051ea76.chunk.js",
+    "static/css/main.6d867346.chunk.css",
+    "static/js/main.c85f6429.chunk.js"
+  ]
+}
