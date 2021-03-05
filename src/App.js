@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react'
 
 import KeyValPair from './components/KeyValPair'
 import Footer from './components/Footer'
+import AlertBox from './components/AlertBox'
 import {capitalize,smashObj,splitArrByKeyword,copy,validResponse} from './utils/helpers'
 import {validate,data} from './utils'
 import './App.css'
@@ -84,26 +85,8 @@ const App = () => {
               <br></br>
               </Row>
               <Row>
-                {
-                  warnings.length > 0 ? (
-                    <Col>
-                      <h3>Warnings</h3>
-                      {
-                        warnings.map((warn,i) => <Alert key={i} color="warning">{warn}</Alert>)
-                      }
-                    </Col>
-                  ) : ""
-                }
-                {
-                  errors.length > 0 ? (
-                    <Col>
-                      <h3>Errors</h3>
-                      {
-                        errors.map((error,i) => <Alert key={i} color="danger">{error}</Alert>)
-                      }
-                    </Col>
-                  ) : ""
-                }
+                <AlertBox title="Warning(s)" arr={warnings} />
+                <AlertBox title="Error(s)" arr={errors} color="danger" />
               </Row>
             </div>
           )

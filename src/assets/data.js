@@ -1,6 +1,4 @@
-// Not currently used, will be holding document for updated validation functions
-
-export const data = {
+export const urlSettings = {
     protocol: {
         name: "protocol",
         req: true,
@@ -47,15 +45,3 @@ export const data = {
         description: "This refers to an internal section or identifier within a document, introduced by a #. Allows a range special characters"
     },
 }
-
-// Generate error strings
-const throwErr = () => {}
-
-// Manually decode HTML entities that appear in URL
-// - kinda hacky, but URL permitted characters aren't changing anytime soon...
-const decode = (str) => {}
-
-// Handle full validation actions
-export const handler = (url) => {}
-
-// Validate against a combined regular expression

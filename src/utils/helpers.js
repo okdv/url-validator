@@ -23,8 +23,10 @@ export const splitArrByKeyword = (arr,keyword) => {
 export const copy = (txt) => {
     navigator.clipboard.writeText(txt).then(function() {
         console.log("copied")
+        return true
     }, function() {
-        alert("Failed to copy to clipboard")
+        console.log("failed to copy")
+        return false
     })
 }
 
