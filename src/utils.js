@@ -14,7 +14,7 @@ export const data = {
     example: "www.domain.com or 0.0.0.0",
     patchable: false,
     default: null,
-    regex: /((([a-z\dA-Z]([a-z\d-A-Z]*[a-z\dA-Z])*)\.)+[a-zA-Z]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
+    regex: /((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
     description: "Can be in a traditional sub.domain.ext format, or in an IPv4 format. This is a unique identifier to an online resource, like website. This is alphanumeric, allows some special characters like -. Must end in an extension, such as .com."
   },
   path: {
@@ -87,7 +87,7 @@ export const validate = (url) => {
   Object.keys(data).forEach(key => {
     // Declare nested object and create global RegEx 
     const obj = data[key]
-    const rgx = new RegExp(obj.regex.toString().replace(/^\//,"").replace(/\/$/,""))
+    const rgx = new RegExp(obj.regex.toString().replace(/^\//,"").replace(/\/$/,"i"))
     /* So this is kind of a hack to prevent path regex from catching on protocol forward (://) but it works lmao 
         - checks if protocol has been found, if so it removes it from string thats being executed
         - otherwise the path RegEx will match on /www.domain.com as it would be a valid url path as well
