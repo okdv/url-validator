@@ -5,7 +5,7 @@ export const data = {
     example: "http(s)://",
     patchable: true,
     default: "http://",
-    regex: /^(https?:\/\/)?/,
+    regex: /^(https?:\/\/)?/i,
     description: "None http protocols are not supported at this time. A protocol tells the browser how to expect data to be exchanged. Must be forwarded by ://"
   },
   domain: {
@@ -14,7 +14,7 @@ export const data = {
     example: "www.domain.com or 0.0.0.0",
     patchable: false,
     default: null,
-    regex: /((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
+    regex: /((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}||((\d{1,3}\.){3}\d{1,3}))/i,
     description: "Can be in a traditional sub.domain.ext format, or in an IPv4 format. This is a unique identifier to an online resource, like website. This is alphanumeric, allows some special characters like -. Must end in an extension, such as .com."
   },
   path: {
@@ -23,7 +23,7 @@ export const data = {
     example: "/folder/file",
     patchable: true,
     default: "/",
-    regex: /((:\d+)?(\/[/a-z\d-%_.~+]*))/,
+    regex: /((:\d+)?(\/[/a-z\d-%_.~+]*))/i,
     description: "This refers to the exact location of a resource within a website. Path segments begin with /, are alphanumeric, and allow a range of special characters"
   },
   query: {
@@ -32,7 +32,7 @@ export const data = {
     example: "?this=that",
     patchable: false,
     default: null,
-    regex: /(\?[;&a-z\d%_.~+=-]*)/,
+    regex: /(\?[;&a-z\d%_.~+=-]*)/i,
     description: "This assigns variable parameters to a URL. Is started by a ? operation, and contains a set of key=value pairs."
   },
   fragment: {
@@ -41,7 +41,7 @@ export const data = {
     example: "#id",
     patchable: false,
     default: null,
-    regex: /(#[-a-z\d_]*)?$/,
+    regex: /(#[-a-z\d_]*)?$/i,
     description: "This refers to an internal section or identifier within a document, introduced by a #. Allows a range special characters"
   },
 }
