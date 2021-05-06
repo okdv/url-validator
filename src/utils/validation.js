@@ -16,7 +16,7 @@ export const data = {
         example: "www.domain.com or 0.0.0.0",
         patchable: false,
         default: null,
-        regex: /((([aA-zZ\d]([aA-zZ\d-]*[aA-zZ\d])*)\.)+[aA-zZ]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
+        regex: /((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}||((\d{1,3}\.){3}\d{1,3}))/i,
         description: "Can be in a traditional sub.domain.ext format, or in an IPv4 format. This is a unique identifier to an online resource, like website. This is alphanumeric, allows some special characters like -. Must end in an extension, such as .com."
     },
     path: {
