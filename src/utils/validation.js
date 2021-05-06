@@ -16,7 +16,7 @@ export const data = {
         example: "www.domain.com or 0.0.0.0",
         patchable: false,
         default: null,
-        regex: /((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
+        regex: /((([aA-zZ\d]([aA-zZ\d-]*[aA-zZ\d])*)\.)+[aA-zZ]{2,}||((\d{1,3}\.){3}\d{1,3}))/,
         description: "Can be in a traditional sub.domain.ext format, or in an IPv4 format. This is a unique identifier to an online resource, like website. This is alphanumeric, allows some special characters like -. Must end in an extension, such as .com."
     },
     path: {
@@ -25,7 +25,7 @@ export const data = {
         example: "/folder/file",
         patchable: true,
         default: "/",
-        regex: /((:\d+)?(\/[/a-z\d-%_.~+]*))/,
+        regex: /((:\d+)?(\/[/aA-zZ\d-%_.~+]*))/,
         description: "This refers to the exact location of a resource within a website. Path segments begin with /, are alphanumeric, and allow a range of special characters"
     },
     query: {
@@ -34,7 +34,7 @@ export const data = {
         example: "?this=that",
         patchable: false,
         default: null,
-        regex: /(\?[;&a-z\d%_.~+=-]*)/,
+        regex: /(\?[;&aA-zZ\d%_.~+=-]*)/,
         description: "This assigns variable parameters to a URL. Is started by a ? operation, and contains a set of key=value pairs."
     },
     fragment: {
@@ -43,7 +43,7 @@ export const data = {
         example: "#id",
         patchable: false,
         default: null,
-        regex: /(#[;&a-z\d%_.~+=-]*)?$/,
+        regex: /(#[;&aA-zZ\d%_.~+=-]*)?$/,
         description: "This refers to an internal section or identifier within a document, introduced by a #. Allows a range special characters"
     },
 }
