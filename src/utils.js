@@ -130,13 +130,3 @@ export const fullRegex = (str) => {
   const rgx = new RegExp(rgxStr.replace(/\+$/,""), "i")
   return rgx.test(str)
 }
-
-export const objToArr = (obj) => {
-  let arr = []
-  Object.keys(obj).forEach(key => {
-    const item = obj[key]
-    item['id'] = item.id ? item.id : key
-    arr.push(item)
-  })
-  return arr
-}
