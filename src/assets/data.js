@@ -45,3 +45,24 @@ export const urlSettings = {
         description: "This refers to an internal section or identifier within a document, introduced by a #. Allows a range special characters"
     },
 }
+
+export const urlObj = {
+    protocol: {
+        str: "http",
+        fwd: "://"
+    },
+    domain: {
+        sub: null,
+        name: null,
+        ext: null
+    },
+    path: {
+        folders: null,
+        file: null
+    },
+    query: {
+        operation: null,
+        pairs: null
+    },
+    fragment: null
+}
